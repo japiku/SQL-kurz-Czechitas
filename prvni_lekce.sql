@@ -1,3 +1,3 @@
 SELECT * 
 FROM Students
-WHERE name = Jakob
+WHERE name = Jakob and name = Juan
