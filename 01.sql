@@ -1,19 +1,19 @@
---Zadání domácího úkolu:
+--ZadÃ¡nÃ­ domÃ¡cÃ­ho Ãºkolu:
 
--- Vyberte prvních 5 vırobcù (tabulka manufacturers) seøazenıch podle názvu abecednì vzestupnì.
+-- Vyberte prvnÃ­ch 5 vÃ½robcÅ¯ (tabulka manufacturers) seÅ™azenÃ½ch podle nÃ¡zvu abecednÄ› vzestupnÄ›.
 SELECT * 
 FROM SQL1.manufacturers
 ORDER BY Manufacturer
---Zjistìte všechny produkty z kategorie Youth a seøaï je podle ceny (priceNew) sestupnì.
+--ZjistÄ›te vÅ¡echny produkty z kategorie Youth a seÅ™aÄte je podle ceny (priceNew) sestupnÄ›.
 SELECT DISTINCT *
 FROM SQL1.Products
 WHERE category in ('Youth')
 ORDER BY Pricenew Desc
---Vyberte všechny prodeje uskuteènìné v únoru a jejich trba je mezi 1800 a 1900. Zobrazte jen sloupce productid, calendarid a trba za jeden kus a vhodnì je èesky pojmenujte.
+--Vyberte vÅ¡echny prodeje uskuteÄnÄ›nÃ© v Ãºnoru a jejichÅ¾ trÅ¾ba je mezi 1800 a 1900. Zobrazte jen sloupce productid, calendarid a trÅ¾ba za jeden kus a vhodnÄ› je Äesky pojmenujte.
 SELECT productid AS produkt, calendarid AS datum, revenue/units as trzba_za_kus
 FROM SQL1.Sales
 WHERE extract(month from calendarid) = 02 AND (revenue >=1800 and revenue <=1900)
-    --alternativní øešení
+    --alternativnÃ­ Ã¸eÅ¡enÃ­
     SELECT productid AS produkt, calendarid AS datum, revenue/units as trzba_za_kus
     FROM SQL1.Sales
     WHERE extract(month from calendarid) = 02 AND revenue between 1800 and 1900
